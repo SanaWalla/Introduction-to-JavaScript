@@ -274,7 +274,7 @@ function grade(score) {
   } else if (score <= 79) {
     return "C"
   } else if (score <= 89) {
-    return "B"
+    return "you got a B"
   } else {
     return "A"
   }
