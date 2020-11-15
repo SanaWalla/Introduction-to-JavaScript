@@ -18,6 +18,12 @@ Do the following:
    HINT: no function required
 */
 
+let votingAge = 20;
+if (votingAge >= 18) {
+  console.log(true);
+}
+
+console.log(votingAge);
 
 
 /*
@@ -30,7 +36,11 @@ Do the following:
 
    HINT: no function required
 */
+let beverage = "vodka";
+let age = 20;
 
+beverage = (age >= 21) ? "vodka" : "water";
+console.log(beverage);
 
 
 
@@ -46,7 +56,10 @@ Do the following:
    HINT: look up the Number method
 */
 
+let thisVariable = "1999";
+Number("1999");
 
+console.log(Number("1999"));
 
 
 /*
@@ -58,10 +71,10 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-    /*add your code here*/
-  }
-
+function multiply(a, b) {
+  return a * b;
+}
+console.log(multiply(1, 2));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -74,9 +87,11 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-    /*add your code here*/
+function dogYears(x) {
+  return x * 7;
 }
+
+console.log(dogYears(2));
 
 
 
@@ -105,11 +120,30 @@ Use the hungryDog function and feeding requirements below to do the following:
      7 - 12 months 4% of their body weight
     
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
-*/  
+*/
 
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
+function hungryDog(weight, years) {
+  if (years < 1) {
+    if (years <= .3333) {
+      return weight * .1
+    } else if (years < .6666) {
+      return weight * .05
+    } else {
+      return weight * .04
+    }
+
+  } else if (weight <= 5) {
+    return weight * .05
+  } else if (weight <= 10) {
+    return weight * .04
+  } else if (weight <= 15) {
+    return weight * .03
+  } else {
+    return weight * .02
   }
+}
+
+console.log(hungryDog(15, 1));
 
 
 
@@ -119,7 +153,7 @@ function hungryDog(/*add your code here*/){
 /*
 Create a global variable that randomly generates the computer's choice
 Use Math.random to determine the computers choice (Math.random gives a random number between 0 and 1)
-
+ 
 Use the game function below to do the following:
   1. Receive 2 parameters the user's choice and the computer's choice
   2. Return whether the user won, lost, or tied based on these rules of the game described below
@@ -132,11 +166,41 @@ Use the game function below to do the following:
   HINT: While you can complete this with only conditionals based on strings, it may help to equate choice to a number when using Math.random()
 */
 
-function game(user, computer){
-    /*add your code here*/
+let computer = Math.random();
+if (computer < .34) {
+  computer = "rock";
+} else if (computer <= .67) {
+  computer = "paper";
+} else {
+  computer = "scissors";
 }
-  
-  
+
+function game(user, computer) {
+
+  if (
+    (user === "rock" && computer === "scissors") ||
+    (user === "scissors" && computer === "paper") ||
+    (user === "paper" && computer === "rock")
+  ) {
+    return "you win!"
+  } else if (
+    (user === "scissors" && computer === "rock") ||
+    (user === "rock" && computer === "paper") ||
+    (user === "paper" && computer === "scissors")
+  ) {
+    return "you lose!"
+  } else if (
+    (user === computer)
+  ) {
+    return "it's a tie"
+  }
+
+}
+
+
+
+
+
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -149,10 +213,9 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-    /*add your code here*/
-  }
-
+function miles(x) {
+  return x * 0.621371;
+}
 
 
 //Task 5b - Feet to CM
@@ -163,10 +226,10 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-    /*add your code here*/
-  }
- 
+function feet(x) {
+  return x / 30.48
+}
+
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -179,9 +242,13 @@ Using the annoyingSong function below do the following:
       "(number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
+function annoyingSong(count) {
+  for (let i = count; i > 0; i--) {
+    return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall`
   }
+}
+console.log(annoyingSong(2));
+
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -191,21 +258,31 @@ function annoyingSong(/*add your code here*/){
 Using the grade function below do the following: 
   1. Receive a score out of 100 
   2. Return the corresponding letter grade following this grade scale:
-
+ 
    90-100 = A 
    80-89 = B 
    70-79 = C 
    60-69 =  D 
    below 60 = F
 */
-  
-function grade(/*add your code here*/){
-    /*add your code here*/
+
+function grade(score) {
+  if (score <= 60) {
+    return "F"
+  } else if (score <= 69) {
+    return "D"
+  } else if (score <= 79) {
+    return "C"
+  } else if (score <= 89) {
+    return "you got a B"
+  } else {
+    return "A"
   }
-  
-  
-  
-  
+}
+
+
+
+
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
 
@@ -214,32 +291,32 @@ function grade(/*add your code here*/){
 Using the vowelCounter function below do the following:
   1. Receive a string as a parameter
   2. Count and return the number of vowels within that string.  It should handle both capitalized and uncapitalized vowels.
-
+ 
   HINT - you may need to study tomorrow's content on arrays 
   HINT - try looking up the .includes() method
 */
 
 
 function vowelCounter(/*add your code here*/) {
-    /*add your code here*/
+  /*add your code here*/
 }
 
 
 
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
-function foo(){
-    console.log('its working');
-    return 'bar';
+function foo() {
+  console.log('its working');
+  return 'bar';
 }
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Don't touch the code after this line! 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
-export default{
-    foo,
-    multiply,
-    dogYears,
-    hungryDog,
-    game,
-    miles,
-    feet,
-    annoyingSong,
-    grade
+export default {
+  foo,
+  multiply,
+  dogYears,
+  hungryDog,
+  game,
+  miles,
+  feet,
+  annoyingSong,
+  grade
 }
