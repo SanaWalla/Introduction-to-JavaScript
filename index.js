@@ -166,42 +166,36 @@ Use the game function below to do the following:
   HINT: While you can complete this with only conditionals based on strings, it may help to equate choice to a number when using Math.random()
 */
 
-function game(user, computer) {
-  console.log(user, computer);
-  computer = Math.random();
-  if (computer < .34) {
-    computer = "rock";
-  } else if (computer <= .67) {
-    computer = "paper";
-  } else {
-    computer = "scissors";
-  }
-
-  if (user === computer) {
-    return "it's a tie"
-  } else if (user === "rock") {
-    if (computer === "scissors") {
-      return "you win!"
-    } else if (computer === "paper") {
-      return "you lose!"
-    }
-  }
-  else if (user === "paper") {
-    if (computer === "rock") {
-      return "you win!"
-    } else if (computer === "scissors") {
-      return "you lose!"
-    }
-  }
-  else if (user === "scissors") {
-    if (computer === "paper") {
-      return "you win!"
-    } else if (computer === "rock") {
-      return "you lose!"
-    }
-  }
+let computer = Math.random();
+if (computer < .34) {
+  computer = "rock";
+} else if (computer <= .67) {
+  computer = "paper";
+} else {
+  computer = "scissors";
 }
 
+function game(user, computer) {
+
+  if (
+    (user === "rock" && computer === "scissors") ||
+    (user === "scissors" && computer === "paper") ||
+    (user === "paper" && computer === "rock")
+  ) {
+    return "you win!"
+  } else if (
+    (user === "scissors" && computer === "rock") ||
+    (user === "rock" && computer === "paper") ||
+    (user === "paper" && computer === "scissors")
+  ) {
+    return "you lose!"
+  } else if (
+    (user === computer)
+  ) {
+    return "it's a tie"
+  }
+
+}
 
 
 
@@ -247,18 +241,14 @@ Using the annoyingSong function below do the following:
   2. At each iteration, it should return this string: 
       "(number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall"
 */
-let word = "bottles";
-let count = 5;
+
 function annoyingSong(count) {
-  while (count > 0) {
-    console.log(count + " " + word + " of soda on the wall");
-    console.log(count + " " + word + " of soda, take one down pass it around");
-    count = count - 1;
-    count <= 1 ? "bottle" : "bottles";
-    console.log(count + " " + word + " of soda on the wall")
+  for (let i = count; i > 0; i--) {
+    return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall`
   }
 }
-console.log(annoyingSong(1));
+console.log(annoyingSong(2));
+
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
